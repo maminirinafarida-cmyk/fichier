@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  int a,b,c;
+  FILE *monfichier;
+  printf("entrer la valeur de a:");
+  scanf("%d",&a);
+  
+  printf("entrer la valeur de b:");
+  scanf("%d",&b);
+  
+  c=a+b;
+  printf("%d+%d=%d\n",a,b,c);
+  
+monfichier=fopen("resultat.txt","w");
+
+if (monfichier==NULL)
+{
+  printf("erreur d'ouverture du fichier\n");
+  exit(0);
+}
+  fprintf(monfichier,"somme de deux entiers\n");
+  fprintf(monfichier,"nombre1 :%d\n",a);
+  fprintf(monfichier,"nombre2 :%d\n",b);
+  fprintf(monfichier,"resultat :%d + %d =%d\n",a,b,c);
+  fclose(monfichier);
+  
+  printf("resultat sauvegade dans resultat.txt\n");
+  return(0);
+}
+  
